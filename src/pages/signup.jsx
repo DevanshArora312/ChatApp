@@ -3,8 +3,10 @@ import background from '../assets/background.png';
 import {Link} from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import ButtonLoader from '../components/buttonLoader';
-const LoginPage = () => {
-    const [formData, setFormData] = useState({email:"", password:""});
+import NavBar from '../sections/NavBar';
+
+const SignupPage = () => {
+    const [formData, setFormData] = useState({username:"",email:"", password:""});
     const [isClicked,setisClicked] = useState(false);
     const submitHandler = (event) => {
         event.preventDefault();
@@ -36,10 +38,14 @@ const LoginPage = () => {
                 className="absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center"
             >
             </div>
+            
             <div className='absolute flex justify-center items-center inset-0'>
                 <div className='w-[25%] min-w-[500px] aspect-[9/10] bg-white/10 rounded-md flex flex-col items-center justify-center gap-4 max-sm:min-w-[250px] max-md:p-5'>
-                    <p className='text-white text-center text-[1.25rem]'>WELCOME BACK</p>
+                    <p className='text-white text-center text-[1.25rem]'>WELCOME </p>
                     <form onSubmit={submitHandler} className='flex flex-col items-center justify-center gap-4 p-5'>
+                        <div className='w-full'>
+                            <input className='rounded-md w-full h-10 bg-white focus:outline-none text-black px-2 ' name="username" id="username" type='text' placeholder='COD3R-4RY4N' onChange={changeHandler}></input>
+                        </div>
                         <div className='w-full'>
                             <input className='rounded-md w-full h-10 bg-white focus:outline-none text-black px-2 ' name="email" id="email" type='email' placeholder='sqpants@gmail.com' onChange={changeHandler}></input>
                         </div>
@@ -48,7 +54,7 @@ const LoginPage = () => {
                         </div>
                         <div className='w-full'>
                             <button className='w-full focus:outline-none' onClick={clickFunc}>
-                                {!isClicked && `LOG IN`}
+                                {!isClicked && `CREATE ACCOUNT`}
                                 {isClicked && <ButtonLoader/>}
                             </button>
                         </div>
@@ -63,9 +69,10 @@ const LoginPage = () => {
                             </button>
                         </div>
                         <div className='w-full flex justify-center items-center gap-2 max-sm:text-xs'>
-                            <div>DON'T HAVE AN ACCOUNT?</div>
-                            <Link to='/signup'>Request Now</Link>
+                            <div>ALREADY HAVE AN ACCOUNT?</div>
+                            <Link to='/login'>LOGIN HERE</Link>
                         </div>
+                        
                     </form>
                 </div>
             </div>
@@ -73,4 +80,4 @@ const LoginPage = () => {
     );
 }
 
-export default LoginPage;
+export default SignupPage;
