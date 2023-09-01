@@ -3,11 +3,23 @@ import background from '../assets/background.png';
 import {Link} from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import ButtonLoader from '../components/buttonLoader';
+import ButtonError from '../components/buttonError';
 const LoginPage = () => {
     const [formData, setFormData] = useState({email:"", password:""});
     const [isClicked,setisClicked] = useState(false);
+    const [emptyError,setEmptyError] = useState(true);
     const submitHandler = (event) => {
         event.preventDefault();
+        if (formData['email'] == '' || formData['password'] == '') {
+            setEmptyError(true);
+        } 
+        else {
+            setEmptyError(false);
+        }
+        setisClicked(true);
+        setTimeout(()=>{
+            setisClicked(false);
+        },2000);
     }
     const changeHandler = (event)=>{
         setFormData((prev)=>{
@@ -17,12 +29,7 @@ const LoginPage = () => {
             }
         })
     }
-    const clickFunc = ()=>{
-        setisClicked(true);
-        setTimeout(()=>{
-            setisClicked(false);
-        },2000);
-    }
+    
     console.log(formData);
     return ( 
         <div className='relative w-screen h-screen'>
@@ -47,10 +54,11 @@ const LoginPage = () => {
                             <input className='rounded-md w-full h-10 bg-white focus:outline-none text-black px-2' name="password" id="password" type='password' placeholder='wh1t3_p4nt$' onChange={changeHandler}></input>
                         </div>
                         <div className='w-full'>
-                            <button className='w-full focus:outline-none' onClick={clickFunc}>
+                            {(isClicked && emptyError) ? <ButtonError text = {"LOG IN"}/> : <button className='w-full focus:outline-none' disabled={isClicked}>
                                 {!isClicked && `LOG IN`}
                                 {isClicked && <ButtonLoader/>}
-                            </button>
+                            </button>}
+                            
                         </div>
                         <div className='w-full flex justify-between items-center'>
                             <div className='w-[45%] h-[2px] bg-black'></div>
