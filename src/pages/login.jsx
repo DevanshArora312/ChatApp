@@ -54,7 +54,7 @@ const LoginPage = () => {
                             <input className='rounded-md w-full h-10 bg-white focus:outline-none text-black px-2' name="password" id="password" type='password' placeholder='wh1t3_p4nt$' onChange={changeHandler}></input>
                         </div>
                         <div className='w-full'>
-                            {(isClicked && emptyError) ? <ButtonError text = {"LOG IN"}/> : <button className='w-full focus:outline-none' disabled={isClicked}>
+                            {(isClicked && emptyError) ? <ButtonError text = {"LOG IN"}/> : <button className='default w-full focus:outline-none' disabled={isClicked}>
                                 {!isClicked && `LOG IN`}
                                 {isClicked && <ButtonLoader/>}
                             </button>}
@@ -66,7 +66,7 @@ const LoginPage = () => {
                             <div className='w-[45%] h-[2px] bg-black'></div>
                         </div>
                         <div className='w-full'>
-                            <button className='w-full flex items-center justify-center gap-8 max-sm:text-xs'>
+                            <button className='default w-full flex items-center justify-center gap-8 max-sm:text-xs'>
                                     <FcGoogle style={{fontSize:'2rem'}}/> SIGN UP WITH GOOGLE
                             </button>
                         </div>

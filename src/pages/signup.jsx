@@ -11,6 +11,7 @@ const SignupPage = () => {
     const [isClicked,setisClicked] = useState(false);
     const [emptyError,setEmptyError] = useState(true);
     const submitHandler = (event) => {
+        // if(event.target.id === 'Google_Button') console.log(event.target.id);
         event.preventDefault();
         if (formData['email'] == '' || formData['password'] == '') {
             setEmptyError(true);
@@ -32,7 +33,7 @@ const SignupPage = () => {
         })
     }
     
-    console.log(formData);
+    // console.log(formData);
     return ( 
         <div className='relative w-screen h-screen'>
             <div
@@ -60,7 +61,7 @@ const SignupPage = () => {
                             <input className='rounded-md w-full h-10 bg-white focus:outline-none text-black px-2' name="password" id="password" type='password' placeholder='wh1t3_p4nt$' onChange={changeHandler}></input>
                         </div>
                         <div className='w-full'>
-                        {(isClicked && emptyError) ? <ButtonError text = {"CREATE ACCOUNT"}/> : <button className='w-full focus:outline-none' disabled={isClicked}>
+                        {(isClicked && emptyError) ? <ButtonError text = {"CREATE ACCOUNT"}/> : <button className='default w-full focus:outline-none' disabled={isClicked}>
                                 {!isClicked && `CREATE ACCOUNT`}
                                 {isClicked && <ButtonLoader/>}
                             </button>}
@@ -71,8 +72,8 @@ const SignupPage = () => {
                             <div className='w-[45%] h-[2px] bg-black'></div>
                         </div>
                         <div className='w-full'>
-                            <button className='w-full flex items-center justify-center gap-8 max-sm:text-xs'>
-                                    <FcGoogle style={{fontSize:'2rem'}}/> SIGN UP WITH GOOGLE
+                            <button className='default w-full flex items-center justify-center gap-8 max-sm:text-xs' id='Google_Button'>
+                                    <FcGoogle style={{fontSize:'2rem'}} /> SIGN UP WITH GOOGLE
                             </button>
                         </div>
                         <div className='w-full flex justify-center items-center gap-2 max-sm:text-xs'>
