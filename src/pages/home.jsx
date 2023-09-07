@@ -1,5 +1,4 @@
 import NavBar from "../sections/NavBar";
-
 const Home = () => {
     return ( 
         <>
