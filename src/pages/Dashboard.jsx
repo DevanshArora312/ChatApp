@@ -11,6 +11,11 @@ const Dashboard = () => {
     const [message, setMessage] = useState('');
     const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
     const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'NOVEMBER', 'DECEMBER'];
+    function handleKeyPress(event){
+        if(event.key === 'Enter'){
+            SendMessage();
+        }
+    }
     useEffect(()=>{
         const todayDate = new Date();
         date.month = months[todayDate.getMonth()];
@@ -142,7 +147,7 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                                 <div className="w-full relative">
-                                    <input type='text' onChange={(event)=>{setMessage(event.target.value)}} placeholder='Enter Your Message Here....' value={message} className="w-full bg-primaryLight p-2 rounded-md focus:outline-none text-gray-500/60">
+                                    <input type='text' onKeyDown={handleKeyPress} onChange={(event)=>{setMessage(event.target.value)}} placeholder='Enter Your Message Here....' value={message} className="w-full bg-primaryLight p-2 rounded-md focus:outline-none text-gray-500/60">
                                     </input>
                                     <FaPaperclip className="text-gray-600/40 absolute bottom-3 right-12 cursor-pointer"/>
                                     <FaPaperPlane onClick={SendMessage} className="absolute right-5 bottom-3 cursor-pointer text-sapphire"/>
