@@ -1,7 +1,7 @@
 const AgendaData = {
     Agendas: [    
                 {   
-                    date:7,
+                    date:9,
                     month:9,
                     year:2023,
                     task:'Meeting With Bill Gates'
@@ -13,7 +13,7 @@ const AgendaData = {
                     task:'Travel To Boston'
                 }, 
                 {   
-                    date:7,
+                    date:9,
                     month:9,
                     year:2023,
                     task:'Watch india\'s cricket match against pakistan'
