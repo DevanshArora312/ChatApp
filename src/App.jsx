@@ -7,12 +7,11 @@ import LoginPage from './pages/login';
 import LandingPage from './pages/LandingPage';
 import SignupPage from './pages/signup';
 import CreateAgenda from './pages/CreateAgenda';
-
+import Agenda from './pages/Agenda';
 function App() {
 
 
   return (
-    <>
     <BrowserRouter>
         <Routes>
           <Route exact path='/' element = {<LandingPage/>} />
@@ -20,10 +19,10 @@ function App() {
           <Route exact path="/login" element={<LoginPage/>} />
           <Route exact path="/signup" element={<SignupPage/>} />
           <Route exact path="/dashboard" element={<Dashboard/>} />
+          <Route exact path="/agenda" element={<Agenda/>} />
           <Route exact path="/agenda/create" element={<CreateAgenda/>} />
         </Routes>
       </BrowserRouter>
-    </>
   )
 }
 
