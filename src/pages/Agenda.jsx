@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import Calendar from 'react-calendar'; 
 import AgendaData from '../AgendaData';
+import backgroundAgenda from '../assets/backgroundAgenda.png';
 import {AiFillCloseCircle} from 'react-icons/ai'
 import {FiMaximize} from 'react-icons/fi'
 import {BsDroplet} from 'react-icons/bs'
@@ -19,8 +20,15 @@ function Agenda() {
     const [todoList, setTodoList] = useState([]);
     return (
         <div className="w-screen h-screen flex justify-center items-center relative">
+            <div style={{
+                    backgroundImage: `url(${backgroundAgenda})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    filter: 'brightness(0.2)',
+                }} className='absolute inset-0 -z-10'>
+            </div>
             <div className="text-[#757575] outline-none border-none">
-                <Calendar onChange={(newDate)=>{
+                <Calendar className='w-[100%] bg-white/10' onChange={(newDate)=>{
                                                     setDate(newDate);
                                                     const date = newDate.getDate(), month = newDate.getMonth() + 1, year = newDate.getFullYear();
                                                     const list = [];
@@ -87,8 +95,6 @@ function Agenda() {
                     </div>
                     <div className='relative'>
                         <button className='w-full text-slate-500 font-bold'>ADD AGENDA</button>
-                        <div className={Xorient ? 'bg-slate-600/40 h-[24px] absolute top-0 left-0 right-0 bottom-0 duration-200 -z-1 rotate-45' : 'bg-slate-600/50 h-[24px] absolute top-0 left-0 duration-200 right-0 bottom-0 -z-1'} ></div>
-                        <div className={Xorient ? 'bg-slate-600/40 h-[24px] absolute top-0 left-0 right-0 bottom-0 duration-200 -z-1  -rotate-45' : 'bg-slate-600/50 h-[24px] absolute top-0 left-0 duration-200 right-0 bottom-0 -z-1'} ></div>
                     </div>
                 </div>
             </div>
